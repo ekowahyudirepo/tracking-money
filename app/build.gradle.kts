@@ -13,11 +13,25 @@ android {
         applicationId = "com.keuanganku.app"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
+    }
+
+    // Keystore tetap supaya APK hasil build baru bisa menimpa (update) versi lama
+    // tanpa harus uninstall. Hanya untuk APK debug pribadi, bukan untuk Play Store.
+    signingConfigs {
+        create("shared") {
+            storeFile = file("keuanganku-debug.jks")
+            storePassword = "android"
+            keyAlias = "debug"
+            keyPassword = "android"
+        }
     }
 
     buildTypes {
+        getByName("debug") {
+            signingConfig = signingConfigs.getByName("shared")
+        }
         release {
             isMinifyEnabled = false
         }
@@ -48,6 +62,7 @@ dependencies {
 
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-core")
 
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")

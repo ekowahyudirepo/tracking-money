@@ -160,3 +160,5 @@ captures/
 *.aab
 *.jks
 *.keystore
+
+!app/keuanganku-debug.jks
