@@ -11,33 +11,33 @@ import java.util.TimeZone
 
 val LocaleId: Locale = Locale("id", "ID")
 
-data class Category(val name: String, val emoji: String)
+data class Category(val name: String)
 
 val ExpenseCategories = listOf(
-    Category("Makan", "🍜"),
-    Category("Transport", "🚌"),
-    Category("Belanja", "🛍️"),
-    Category("Tagihan", "🧾"),
-    Category("Hiburan", "🎮"),
-    Category("Kesehatan", "💊"),
-    Category("Pendidikan", "📚"),
-    Category("Keluarga", "👪"),
-    Category("Lainnya", "📦")
+    Category("Makan"),
+    Category("Transport"),
+    Category("Belanja"),
+    Category("Tagihan"),
+    Category("Hiburan"),
+    Category("Kesehatan"),
+    Category("Pendidikan"),
+    Category("Keluarga"),
+    Category("Lainnya")
 )
 
 val IncomeCategories = listOf(
-    Category("Gaji", "💼"),
-    Category("Bonus", "🎁"),
-    Category("Usaha", "🏪"),
-    Category("Investasi", "📈"),
-    Category("Lainnya", "💰")
+    Category("Gaji"),
+    Category("Bonus"),
+    Category("Usaha"),
+    Category("Investasi"),
+    Category("Lainnya")
 )
 
 fun categoriesFor(type: String): List<Category> =
     if (type == TransactionType.INCOME) IncomeCategories else ExpenseCategories
 
-fun emojiFor(type: String, name: String): String =
-    categoriesFor(type).firstOrNull { it.name == name }?.emoji ?: "📦"
+/** Huruf pertama kategori, dipakai sebagai penanda polos di daftar transaksi. */
+fun categoryInitial(name: String): String = name.take(1).uppercase()
 
 // ---------- Uang ----------
 

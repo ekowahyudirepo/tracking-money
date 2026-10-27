@@ -123,10 +123,7 @@ fun StatsScreen(vm: TransactionViewModel, padding: PaddingValues) {
                         val fraction = if (totalExpense > 0) sum.toFloat() / totalExpense.toFloat() else 0f
                         Column {
                             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                                Text(
-                                    emojiFor(TransactionType.EXPENSE, name) + " " + name,
-                                    fontWeight = FontWeight.SemiBold
-                                )
+                                Text(name, fontWeight = FontWeight.SemiBold)
                                 Text(formatRupiah(sum) + " (" + (fraction * 100).roundToInt() + "%)")
                             }
                             Spacer(Modifier.height(4.dp))

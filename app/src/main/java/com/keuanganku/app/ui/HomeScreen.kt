@@ -276,7 +276,11 @@ private fun TransactionRow(item: Transaction, onClick: () -> Unit) {
                 .background(MaterialTheme.colorScheme.secondaryContainer),
             contentAlignment = Alignment.Center
         ) {
-            Text(emojiFor(item.type, item.category))
+            Text(
+                categoryInitial(item.category),
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSecondaryContainer
+            )
         }
         Spacer(Modifier.width(12.dp))
         Column(Modifier.weight(1f)) {

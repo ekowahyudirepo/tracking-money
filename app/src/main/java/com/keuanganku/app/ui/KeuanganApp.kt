@@ -2,6 +2,8 @@ package com.keuanganku.app.ui
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -15,10 +17,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.painterResource
+import com.keuanganku.app.R
 import com.keuanganku.app.TransactionViewModel
 import com.keuanganku.app.data.Transaction
 
-private val Tabs = listOf("🏠" to "Beranda", "📊" to "Statistik", "⚙️" to "Pengaturan")
+private val TabLabels = listOf("Beranda", "Statistik", "Pengaturan")
 
 @Composable
 fun KeuanganApp(vm: TransactionViewModel) {
@@ -29,11 +33,17 @@ fun KeuanganApp(vm: TransactionViewModel) {
     Scaffold(
         bottomBar = {
             NavigationBar {
-                Tabs.forEachIndexed { index, (emoji, label) ->
+                TabLabels.forEachIndexed { index, label ->
                     NavigationBarItem(
                         selected = tab == index,
                         onClick = { tab = index },
-                        icon = { Text(emoji) },
+                        icon = {
+                            when (index) {
+                                0 -> Icon(Icons.Default.Home, contentDescription = null)
+                                1 -> Icon(painterResource(R.drawable.ic_chart), contentDescription = null)
+                                else -> Icon(Icons.Default.Settings, contentDescription = null)
+                            }
+                        },
                         label = { Text(label) }
                     )
                 }

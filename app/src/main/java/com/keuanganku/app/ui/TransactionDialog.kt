@@ -106,7 +106,7 @@ fun TransactionDialog(
                         FilterChip(
                             selected = c.name == category,
                             onClick = { category = c.name },
-                            label = { Text(c.emoji + " " + c.name) }
+                            label = { Text(c.name) }
                         )
                     }
                 }
@@ -115,7 +115,7 @@ fun TransactionDialog(
                     onClick = { showDatePicker = true },
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text("📅  " + formatDate(dateMillis))
+                    Text("Tanggal: " + formatDate(dateMillis))
                 }
 
                 OutlinedTextField(
