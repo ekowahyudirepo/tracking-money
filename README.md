@@ -12,6 +12,14 @@ Aplikasi Android untuk mencatat pemasukan dan pengeluaran. Data tersimpan offlin
 - Ekspor semua data ke CSV dan bagikan ringkasan bulanan
 - Tema terang/gelap/ikut sistem, warna dinamis (Android 12+)
 
+## Versi web (PWA)
+Ada juga versi web yang bisa dipasang di iPhone dan Android: [tracking-money-pwa](https://github.com/ekowahyudirepo/tracking-money-pwa).
+Versi web punya fitur tambahan yang **belum ada di aplikasi Android ini**:
+- Login dan sinkronisasi antar perangkat (Supabase)
+- Batas pengeluaran harian
+
+Data bisa dipindahkan antar kedua versi lewat ekspor/impor CSV. Tangkapan layar versi web ada di README repo tersebut.
+
 ## Teknologi
 Kotlin, Jetpack Compose (Material 3), Room, minSdk 24.
 
